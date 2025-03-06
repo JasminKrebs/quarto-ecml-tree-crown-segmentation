@@ -23,6 +23,7 @@ contributes:
       format-resources:
         - llncs.cls
         - splncs04.bst
+        - remove_caption.lua
       template-partials:
         - partials/before-title.tex
         - partials/title.tex
@@ -33,8 +34,9 @@ contributes:
         - cite.lua
       indent: true
       block-headings: false
-      # csl: slncs.csl
       nolinks: true
+      microtypeoptions:
+        - activate=false
     html:
       css: styles.css
 
