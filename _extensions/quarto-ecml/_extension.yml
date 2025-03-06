@@ -23,6 +23,7 @@ contributes:
       format-resources:
         - llncs.cls
         - splncs04.bst
+        - remove_caption.lua
       template-partials:
         - partials/before-title.tex
         - partials/title.tex
