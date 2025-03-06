@@ -35,6 +35,8 @@ contributes:
       indent: true
       block-headings: false
       nolinks: true
+      microtypeoptions:
+        - activate=false
     html:
       css: styles.css
 
