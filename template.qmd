@@ -3,7 +3,7 @@ title: Recent Advances in Underwater Basket Weaving Under the Extreme Pressure o
 title-running: Underwater Basket Weaving Under Extreme Pressure
 format:
   quarto-ecml-pdf:
-    keep-tex: true  
+    keep-tex: true
   quarto-ecml-html: default
 blind-review: false
 author:
@@ -36,7 +36,6 @@ author-running: A.L. Benjamin et al.
 abstract: |
   The abstract should briefly summarize the contents of the paper in 150--250 words.
 keywords: [First Keyword, Second Keyword, Another Keyword.]
-bibliography: bibliography.bib
 ---
 
 ## Introduction {#sec-intro}
@@ -154,5 +153,3 @@ relevant to the content of this article. Or: Author A has received research
 grants from Company W. Author B has received a speaker honorarium from
 Company X and owns stock in Company Y. Author C is a member of committee Z.
 \end{credits}
-
-## References {-}

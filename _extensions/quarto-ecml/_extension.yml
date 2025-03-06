@@ -21,14 +21,20 @@ contributes:
       linestretch: 1.0
     pdf:
       include-in-header: header.tex
+      format-resources:
+        - llncs.cls
+        - splncs04.bst
       template-partials:
         - partials/before-title.tex
         - partials/title.tex
         - partials/doc-class.tex
         - partials/before-body.tex
+        - partials/biblio.tex
+      filters:
+        - cite.lua
       indent: true
       block-headings: false
-      csl: slncs.csl
+      # csl: slncs.csl
       nolinks: true
     html:
       css: styles.css
