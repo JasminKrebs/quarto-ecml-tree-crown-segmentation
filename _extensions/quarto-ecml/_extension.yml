@@ -13,6 +13,7 @@ contributes:
         fig-title: Fig.
         fig-prefix: Fig.
     pdf:
+      pdf-engine: latexmk
       include-in-header: header.tex
       format-resources:
         - llncs.cls
