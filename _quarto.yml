@@ -1,7 +1,0 @@
-project:
-  title: "Template"
-  post-render: 
-    - remove_caption.lua
-
-
-
