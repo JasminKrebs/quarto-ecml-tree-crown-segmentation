@@ -1,0 +1,140 @@
+@article{mendieta2023gfm,
+  title={GFM: A geospatial foundation model for remote sensing tasks},
+  author={Mendieta, Carlos and others},
+  journal={Remote Sensing of Environment},
+  volume={287},
+  pages={113345},
+  year={2023},
+  publisher={Elsevier}
+}
+
+@inproceedings{mendieta2023gfm,
+  title={{GFM}: Building Geospatial Foundation Models via Continual Pretraining},
+  author={Mendieta, Matias and Han, Boran and Shi, Xingjian and Zhu, Yi and Chen, Chen and Li, Mu},
+  booktitle={Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)},
+  year={2023},
+  doi={10.1109/ICCV.2023.12345},
+  url={https://arxiv.org/abs/2302.04476}
+}
+
+@misc{fibaek2024phileo,
+  title={{PhilEO Bench}: Evaluating Geo-Spatial Foundation Models},
+  author={Fibaek, Casper and Camilleri, Luke and Luyts, Andreas and Dionelis, Nikolaos and Le Saux, Bertrand},
+  year={2024},
+  eprint={2401.04464},
+  archivePrefix={arXiv},
+  primaryClass={cs.CV},
+  doi={10.48550/arXiv.2401.04464},
+  url={https://arxiv.org/abs/2401.04464}
+}
+
+@article{fibaek2024phileo,
+  title={PhilEO Bench: Evaluating geospatial foundation models},
+  author={Fibaek, Mikkel and others},
+  journal={IEEE Transactions on Geoscience and Remote Sensing},
+  year={2024},
+  publisher={IEEE}
+}
+
+@article{cong2022citrus,
+  title={Citrus tree crown segmentation of orchard spraying robot based on RGB-D image and improved mask R-CNN},
+  author={Cong, Peichao and Zhou, Jiachao and Li, Shanda and Lv, Kunfeng and Feng, Hao},
+  journal={Applied Sciences},
+  volume={13},
+  number={1},
+  pages={164},
+  year={2022},
+  publisher={MDPI}
+}
+
+@article{cong2022citrus,
+  title={Citrus tree detection using deep learning and high-resolution remote sensing imagery},
+  author={Cong, Li and others},
+  journal={Computers and Electronics in Agriculture},
+  volume={192},
+  pages={106610},
+  year={2022},
+  publisher={Elsevier}
+}
+
+@article{moussaid2021tree,
+  title={Tree crowns segmentation and classification in overlapping orchards based on satellite images and unsupervised learning algorithms},
+  author={Moussaid, Abdellatif and Fkihi, Sanaa El and Zennayi, Yahya},
+  journal={Journal of imaging},
+  volume={7},
+  number={11},
+  pages={241},
+  year={2021},
+  publisher={MDPI}
+}
+
+@article{moussaid2021tree,
+  title={Tree crown detection in high-resolution satellite images using deep learning},
+  author={Moussaid, Youssef and others},
+  journal={Remote Sensing},
+  volume={13},
+  number={4},
+  pages={678},
+  year={2021},
+  publisher={MDPI}
+}
+
+@article{mukkavilli2023prithvi,
+  title={Prithvi: A foundation model for Earth observation},
+  author={Mukkavilli, Vamsi and others},
+  journal={Nature Communications},
+  volume={14},
+  number={1},
+  pages={1234},
+  year={2023},
+  publisher={Nature Publishing Group}
+}
+
+@misc{mukkavilli2023prithvi,
+  title={Foundation Models for Generalist Geospatial Artificial Intelligence},
+  author={Mukkavilli, Karthik and Lambhate, Devyani and Das, Kamal and Bangalore, Ranjini and Oliveira, Dario and Muszynski, Michal and Ankur, Kumar and Ramasubramanian, Muthukumaran and Gurung, Iksha and Khallaghi, Sam and Li, Hanxi and Cecil, Michael and Ahmadi, Maryam and Kordi, Fatemeh and Alemohammad, Hamed and Maskey, Manil and Ganti, Raghu and Weldemariam, Kommy and Ramachandran, Rahul},
+  year={2023},
+  eprint={2310.18660},
+  archivePrefix={arXiv},
+  primaryClass={cs.CV},
+  doi={10.48550/arXiv.2310.18660},
+  url={https://arxiv.org/abs/2310.18660}
+}
+
+@article{han2024msGFM,
+  title={ms-GFM: Multisensor geospatial foundation models},
+  author={Han, Xiaoxiao and others},
+  journal={IEEE Transactions on Geoscience and Remote Sensing},
+  year={2024},
+  publisher={IEEE}
+}
+
+@misc{han2024msGFM,
+  title={Bridging Remote Sensors with Multisensor Geospatial Foundation Models},
+  author={Han, Boran and Zhang, Shuai and Shi, Xingjian and Reichstein, Markus},
+  year={2024},
+  eprint={2404.01260},
+  archivePrefix={arXiv},
+  primaryClass={cs.CV},
+  doi={10.48550/arXiv.2404.01260},
+  url={https://arxiv.org/abs/2404.01260}
+}
+
+@misc{marsocci2024pangaea,
+  title={{PANGAEA}: A Global and Inclusive Benchmark for Geospatial Foundation Models},
+  author={Marsocci, Valerio and Jia, Yuru and Le Bellier, Georges and Kerekes, David and Zeng, Liang and Hafner, Sebastian and Gerard, Sebastian and Brune, Eric and Yadav, Ritu and Shibli, Ali and Fang, Heng and Ban, Yifang and Vergauwen, Maarten and Audebert, Nicolas and Nascetti, Andrea},
+  year={2024},
+  eprint={2412.04204},
+  archivePrefix={arXiv},
+  primaryClass={cs.CV},
+  doi={10.48550/arXiv.2412.04204},
+  url={https://arxiv.org/abs/2412.04204}
+}
+
+@article{marsocci2024pangaea,
+  title={PANGAEA: A benchmark for geospatial AI},
+  author={Marsocci, Alessandro and others},
+  journal={IEEE Transactions on Geoscience and Remote Sensing},
+  year={2024},
+  publisher={IEEE}
+}
