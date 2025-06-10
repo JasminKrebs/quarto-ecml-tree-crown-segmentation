@@ -1,40 +1,75 @@
 ---
 title: "Validation challenges in large-scale tree crown segmentations from remote sensing imagery using Deep Learning: a case study in Germany"
 title-running: Validation challenges in tree crown segmentations
+bibliography: bibliography.bib
 format:
   quarto-ecml-pdf:
     keep-tex: true
   quarto-ecml-html: default
 author:
   - name: Taimur Khan
+    orcid: '0000-0001-7833-5474'
     corresponding: true 
     affiliations:
       - name: Helmholtz Centre for Environmental Research (UFZ)
-        address: Theodor-Lieser-Str. 4, 06120 Halle (Saale)
+        address: Theodor-Lieser-Str. 4
+        city: Halle (Saale)
+        postal-code: 04109 
         country: Germany
-        url: \{taimur.khan\}\@ufz.de
+        url: taimur.khan@ufz.de
         id: south
     url: https://www.ufz.de/index.php?en=49404
-  - name: Calvin Cordozar Broadus Jr.
+  - name: Jasmin Krebs
+    orcid: '0009-0003-9330-1231'
     affiliations:
-      - name: Fictional West Coast University
-        address: Long Beach CA 90840
-        country: USA
-        url: ccb@fwcu.fake
+      - name: Leipzig University
+        address: Augustusplatz 10 
+        city: Leipzig
+        country: Germany
+        postal-code: 04109 
+        url: jassi.krebs@gmx.de
+  - name: Sharad Kumar Gupta
+    orcid: '0000-1111-2222-3333'
+    affiliations:
+      - ref: south
       - name: Secondary European Affiliation
         address: Tiergartenstr. 17
         city: Heidelberg
         country: Germany
         postal-code: 69121 
-        url: lncs@springer.com
-  - name: Antwan André Patton
+        url: sharad.gupta@ufz.de
+  - name: Jonathan Renkel
     orcid: '0000-1111-2222-3333'
     affiliations:
-      - ref: south 
+      - name: Martin Luther University Halle-Wittenberg
+        address: Von-Seckendorff-Platz 2
+        city: Halle (Saale)
+        country: Germany
+        postal-code: 06120
+        url: jonathan.renkel@geo.uni-halle.de
+  - name: Caroline Arnold
+    orcid: '0000-0002-9458-1517'
+    affiliations:
+      - name: Helmholtz-Zentrum Hereon
+        address: Max-Planck-Straße 1
+        city: Geesthacht
+        country: Germany
+        postal-code: 21502 
+        url: caroline.arnold@hereon.de
+  - name: Nils Nölke 
+    orcid: '0000-0003-4925-2287'
+    affiliations:
+      - name: University of Göttingen, Forest Inventory and Remote Sensing
+        address: Büsgenweg 5
+        city: Göttingen
+        country: Germany
+        postal-code: 37077 
+        url: nils.noelke@forst.uni-goettingen.de
+
 author-running: T. Khan et al.
 abstract: |
- Recent progress in deep learning has greatly improved the ability to extract detailed information from remote sensing images, such as identifying and outlining individual tree crowns. However, as these models are scaled up for use across large geographic areas—beyond individual forests or research plots—new challenges begin to emerge. One of the main hurdles is validating how accurately these models detect and segment tree crowns. Even small errors in these predictions can affect decisions in forestry management and urban planning, limiting the real-world usefulness of such models. Our experience working with large-scale applications across regions in Germany highlights how factors like tree size, seasonal variations, shadow effects, and the shape of training data annotations influence model performance. This underlines the importance of thoughtful selection and design of training datasets. We discuss these challenges in validation and emphasize the need for careful model evaluation when working at broader spatial scales.
-keywords: [First Keyword, Second Keyword, Another Keyword.]
+  Recent advancements in deep learning have significantly enhanced the extraction of detailed ecological information from multispectral (RGBi) aerial imagery, notably the identification and segmentation of individual tree crowns. Using data from our extensive case study mapping approximately 218.7 million trees across the German federal states of Sachsen and Sachsen-Anhalt, we illustrate how scaling these models beyond controlled settings introduces critical validation challenges. Even minor inaccuracies in tree crown segmentation can substantially impact practical applications in forestry management and urban planning. Our findings emphasize the influence of tree allometry, seasonal variability, shadow effects, and the characteristics of training dataset annotations on model accuracy. Addressing these issues necessitates careful selection and design of training data and exploration of task-specific pre-training through Foundation Models. We highlight these validation complexities and recommend for rigorous steps to ensure the reliability and practical utility of large-scale deep learning models in ecological and urban management contexts.
+keywords: [Deep Learning, Ecology, Forestry, Remote Sensing.]
 ---
 
 # Introduction
@@ -43,9 +78,9 @@ The urgency of climate change and biodiversity loss significantly heightens the 
 
 While recent advances in deep learning offer unprecedented capabilities for automated segmentation, their robust validation at scale presents a critical, unaddressed hurdle.
 
-The integration of deep learning into remote sensing has opened new ways in how we monitor and analyse ecological systems [@zheng2024review; @zhao2023systematic]. Tree crown segmentation has especially benefited from advances in convolutional neural networks (CNNs) and transformer-based architectures. Latter was used by [@JIANG2025103114], for single tree detection. Approaches leveraging high-resolution imagery have demonstrated remarkable capabilities in delineating individual tree crowns [@weinstein2019individual; @khant2025deeptrees; @freudenberg2022individual], illustrating the potential for scalable and automated tree mapping.
+The integration of deep learning into remote sensing has opened new ways in how we monitor and analyse ecological systems [@zheng2024review; @zhao2023systematic]. Tree crown segmentation has especially benefited from advances in convolutional neural networks (CNNs) and transformer-based architectures. Latter was used by [@JIANG2025103114], for single tree detection. Approaches leveraging high-resolution imagery have demonstrated remarkable capabilities in delineating individual tree crowns [@weinstein2019individual; @khan2025deeptrees; @freudenberg2022individual, @JIANG2025103114], illustrating the potential for scalable and automated tree mapping.
 
-However, while these deep learning models demonstrate impressive performance in controlled environments or with limited-scale datasets, their deployment at expansive spatial extents, such as regional or national scales, exposes a distinct spectrum of challenges that remain largely unaddressed. Foremost among these is validation—a critical yet underexplored hurdle in ensuring the reliability and generalizability of model outputs. As recent studies have shown, the performance of tree crown segmentation models is highly sensitive to the characteristics of the training data, such as tree size, species diversity, seasonal variations, vitality conditions, and image quality [@moussaid2021tree; @cong2022citrus], a fact that directly reflects the profound complexity of how tree crowns appear in real-world conditions. To enable scalable validation frameworks, it is therefore necessary to accurately characterize and account for this complexity.
+However, while these deep learning models demonstrate impressive performance in controlled environments or with limited-scale datasets, their deployment at expansive spatial extents, such as regional or national scales, exposes a distinct spectrum of challenges that remain largely unaddressed. Foremost among these is validation — a critical yet underexplored hurdle in ensuring the reliability and generalizability of model outputs. As recent studies have shown, the performance of tree crown segmentation models is highly sensitive to the characteristics of the training data, such as tree size, species diversity, seasonal variations, vitality conditions, and image quality [@moussaid2021tree; @cong2022citrus], a fact that directly reflects the profound complexity of how tree crowns appear in real-world conditions. To enable scalable validation frameworks, it is therefore necessary to accurately characterize and account for this complexity.
 
 A key metric in this context is the crown projection area (CPA), defined as the vertical projection of the crown onto a horizontal plane. Deriving CPA provides essential insights both at the individual tree level—where it provides predictions of diameter, volume, and growth rates—and at the stand level, supporting models of competition and canopy gap dynamics [@shimano1997analysis; @krajicek1961crown]. However, inaccuracies inherent in the segmentation process, particularly when applied at large scales, can lead to biased estimations of these critical tree variables, underscoring the urgent need to address robust validation challenges in large-scale tree crown segmentation.  
    
@@ -61,7 +96,8 @@ Despite optimized methods, exact matches between predicted and ground-truth crow
 
 Despite optimized methods, exact matches between predicted and ground-truth crown spreads were low (32%), though expanding the margin of error to ±5 m increased accuracy significantly (89%), highlighting validation challenges. The segmentation model systematically overestimated small crowns (\<6 m) and underestimated large crowns (\>16 m), yet the crown area versus spread relationship remained stable (Figure 1b), indicating consistent segmentations. Validation quality proved crucial; notably, the local inventory (‘Baumkataster’ Halle/Saale) provided broad intervals (5 m), limiting validation precision but still achieving an overall IOU of \~70%.The segmented tree crowns show substantial regional variability in tree distribution, reflecting ecological, topographical, and land-use gradients (Figure 3). 
 
-![]("./figures/figure1.png")
+![a. Spatial distribution of individual tree crown segmentation polygons derived from multispectral DOP20 imagery across the German federal states of Sachsen (SN, green) and Sachsen-Anhalt (ST, blue), totaling 218.7 million predicted crowns.
+b. Relationship between normalized crown area (x-axis) and estimated crown spread (y-axis) for all segmented trees. A clear positive correlation is observed, although deviations from the expected linear trend highlight segmentation uncertainties, particularly for small and irregularly shaped crowns. This variation underscores the need for improved methods to capture crown geometry and supports the use of allometric checks for quality assessment.]("./figures/figure1.png")
 
 # Challenges
 
@@ -77,9 +113,7 @@ There is also the issue of scale and resolution in validation reporting. A model
 
 The above challenges reflect the multifaceted difficulties of validating tree crown segmentation at scale. For an at-a-glance overview of these issues and recommendations, see Table 1 in the Appendix.
 
-![]("./figures/figure2.png")
-
-*Figure 2:* Illustration of key validation challenges in large-scale tree crown segmentation across two federal states (Sachsen-Anhalt; in blue & Sachsen; in green) in Germany. Insets highlight specific issues: (a) seasonal variation (phenology) affecting appearance, (b) tiling artifacts in image preprocessing, (c) misalignment between predicted crowns and known tree stem locations, and (d) discrepancies between predicted crowns (blue) and labeled ground truth (red), emphasizing model performance gaps. Blue (Sachsen-Anhalt) and green (Sachsen) overlays represent modelled individual tree crowns across different Federal States in Germany.
+![Illustration of key validation challenges in large-scale tree crown segmentation across two federal states (Sachsen-Anhalt; in blue & Sachsen; in green) in Germany. Insets highlight specific issues: (a) seasonal variation (phenology) affecting appearance, (b) tiling artifacts in image preprocessing, (c) misalignment between predicted crowns and known tree stem locations, and (d) discrepancies between predicted crowns (blue) and labeled ground truth (red), emphasizing model performance gaps. Blue (Sachsen-Anhalt) and green (Sachsen) overlays represent modelled individual tree crowns across different Federal States in Germany.]("./figures/figure2.png")
 
 
 # Recommendations
@@ -103,7 +137,7 @@ Addressing these challenges necessitates a multi-faceted approach that integrate
 **Innovate in ground-truth data collection and labeling.** Advances in modeling alone cannot eliminate the need for enhanced validation datasets. We recommend expanding ground-truth collection through automation, crowdsourcing, and active learning. Automated techniques using drones or AI-equipped aircraft can rapidly generate tree crown annotations, minimizing expert involvement. Crowdsourcing allows non-experts to efficiently label straightforward cases, supported by redundancy and quality controls, proven effective in urban tree mapping. Active learning strategies prioritize uncertain or conflicting model predictions for expert review, significantly optimizing annotation efforts [@Wu_2022_CVPR]. Additionally, promoting open data practices and sharing existing inventories and LiDAR datasets from public agencies can provide critical validation resources. Integrating these approaches—automation, crowdsourcing, active learning, and open data—will effectively bridge validation data gaps and enhance model robustness and generalizability.
 
 # Conclusion
-@
+
 Deep learning has opened a new frontier for tree crown segmentation from remote sensing imagery, yet its promise is contingent on our ability to validate these models reliably and at scale. As this paper has outlined, the challenges are not merely technical—they are epistemological. They force us to ask: what does it mean to “know” a tree from above, when the canopy is a moving target shaped by phenology, terrain, land cover and image artifacts?
 
 The comprehensive case study in Sachsen and Sachsen-Anhalt exemplifies how substantial regional variability in ecology, topography, and land use affects model performance. Validation challenges identified—including phenological dynamics, spatial heterogeneity, and scale-dependent accuracy—highlight the need for robust validation frameworks tailored to large spatial extents.
@@ -115,11 +149,12 @@ Pursuing the recommendations, the field can significantly advance accurate and t
 
 # Appendices
 
-![]("./figures/figure3.png") 
-*Figure 3:* 
+![Environmental heterogeneity across the German federal states of Sachsen and Sachsen-Anhalt, where tree crown segmentation was conducted.
+(Top) Acquisition months of DOP20 imagery (April to September) used in the segmentation, showing strong spatial variation in image phenology ( [@geosn_dop20_2022]; [@lvermgeo2020dop]).
+(Middle) Aggregated land cover classes based on CORINE Land Cover 2020 data, grouped into five categories: agricultural areas, artificial surfaces, forest and semi-natural areas, water bodies, and wetlands ( [@eea_corine2020]).
+(Bottom) Elevation map derived from the COPDEM GLO-30 digital elevation model at 30 m spatial resolution, representing terrain variability used to assess segmentation accuracy across topographic gradients ( [@copernicus_copdem30]).]("./figures/figure3hor.png") 
+ 
 
-
-*Table 1: Summary of key validation challenges in large-scale tree crown segmentation, with examples, relevant references, and recommended mitigation strategies.*
 
 | Challenge | Description | Example/ Implications | References | Recommendation | References |
 | ----- | ----- | ----- | ----- | ----- | ----- |
@@ -128,6 +163,8 @@ Pursuing the recommendations, the field can significantly advance accurate and t
 | Scarcity of Accurate Ground Truth Data | Collecting detailed crown delineations over large regions is logistically difficult and expensive. Field surveys are precise but not scalable; aerial/satellite imagery lacks resolution for unequivocal labeling due to factors like canopy overlap, varied lighting conditions, complex tree morphologies, and the sheer scale of the areas to be annotated. This leads to a mismatch between model output scale and validation data, introducing uncertainty and bias. | Ground truth typically covers only small plots, making it difficult to validate national-scale maps. | [@steier2024] | Innovate in ground-truth data collection and labeling. Combining automation (e.g., AI-equipped drones), crowdsourcing, and active learning to expand and diversify validation datasets. Open data sharing and targeted expert annotation can further close the validation gap. |   |
 | Inconsistency in Reference Annotations and Evaluation Metrics | Reference data formats vary (GPS points vs. polygons), leading to ambiguity in matching predictions to ground truth. Dense stands and overlapping crowns complicate one-to-one correspondence. Pixel-wise metrics (e.g., IoU) may not reflect ecological reality, while object-centric metrics (e.g., panoptic segmentation) require well-defined ground-truth objects. Lack of consensus on evaluation protocols results in incompatible accuracy reports across studies. | A model could over-segment every tree and still achieve a good IoU, but double the perceived tree count which is problematic for applications requiring accurate counts such as for managed forest or botanical gardens. | [@kirillov2019; @stewart2021] | Establish community benchmarks and evaluation frameworks. Develop standardized datasets, protocols, and metrics for tree segmentation. Community benchmarks should cover diverse landscapes and seasons, and include multi-scale and ecological consistency checks for robust, comparable validation. | [@marsocci2024pangaea; @fibaek2024phileo] |
 | Scale and Resolution Dependence in Validation Reporting | Model accuracy varies with the spatial scale of evaluation. Regional averages can mask local errors; performance may be high overall but poor in specific challenging areas. Errors may be unevenly distributed across landscape types, making it necessary to use multi-scale validation approaches and stratified reporting. | A model might perform well regionally but poorly in a specific forest stand or urban park, misleading local users. |  | Expand validation beyond pixel agreement using ecological consistency checks and multi-scale reporting. Integrate allometric relationships and stratified accuracy reporting to ensure ecological plausibility and transparency at multiple spatial scales. | [@song2023biomass; @marsocci2024pangaea] |
+
+: Summary of key validation challenges in large-scale tree crown segmentation, with examples, relevant references, and recommended mitigation strategies. {#tbl-headings .tbl-colwidths="15,25,20,10,20,10"}
 
 \begin{credits}
 \subsubsection{\ackname} DeepTrees is part of the [“DeepTrees: Deep-Learning based spatiotemporal tree inventorying and monitoring from public orthoimages”](https://deeptrees.de) project, funded by the Integration Platform "Sustainable Future Land Use" at Helmholtz-Centre for Environmental Research – UFZ within the Programme oriented Funding (PoF) period IV of the Helmholtz Program "Changing Earth – Sustaining our Future", Topic 5 "Landscapes of the Future. This repository is based on the work described in Freudenberg et al. (2022). This work was supported by Helmholtz Association's Initiative and Networking Fund through Helmholtz AI [grant number: ZT-I-PF-5-01]. This work used resources of the Deutsches Klimarechenzentrum (DKRZ) granted by its Scientific Steering Committee (WLA) under project ID AIM.
