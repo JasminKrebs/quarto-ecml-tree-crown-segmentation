@@ -11,3 +11,6 @@ template.*
 !template.pdf
 !template.html
 !template.tex
+Validation_challenges_tree_crown_segmentation/_extensions
+_extensions
+.DS_Store
