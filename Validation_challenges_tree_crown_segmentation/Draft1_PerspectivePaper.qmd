@@ -2,6 +2,7 @@
 title: "Validation challenges in large-scale tree crown segmentations from remote sensing imagery using Deep Learning: a case study in Germany"
 title-running: Validation challenges in tree crown segmentations
 bibliography: bibliography.bib
+no-links: false
 format:
   quarto-ecml-pdf:
     keep-tex: true
@@ -18,7 +19,6 @@ author:
         country: Germany
         url: taimur.khan@ufz.de
         id: south
-    url: https://www.ufz.de/index.php?en=49404
   - name: Jasmin Krebs
     orcid: '0009-0003-9330-1231'
     affiliations:
@@ -29,20 +29,20 @@ author:
         postal-code: 04109 
         url: jk21byxu@studserv.uni-leipzig.de
   - name: Sharad Kumar Gupta
-    orcid: '0000-1111-2222-3333'
+    orcid: '0000-0003-3444-1333'
     affiliations:
       - ref: south
-      - name: Secondary European Affiliation
-        address: Tiergartenstr. 17
-        city: Heidelberg
+      - name: HZDR - Centre for Advanced System Understanding (CASUS)
+        address: Untermarkt 20
+        city: Görlitz
         country: Germany
-        postal-code: 69121 
+        postal-code: 02826 
         url: sharad.gupta@ufz.de
   - name: Jonathan Renkel
-    orcid: '0000-1111-2222-3333'
+    orcid: '0009-0002-1513-9497'
     affiliations:
       - name: Martin Luther University Halle-Wittenberg
-        address: Von-Seckendorff-Platz 2
+        address: Von-Seckendorff-Platz 4
         city: Halle (Saale)
         country: Germany
         postal-code: 06120
@@ -90,9 +90,9 @@ Building on our extensive experience in applying deep learning models to large-s
 
 # Case Study: Tree Crown Segmentation in Saxony and Saxony-Anhalt, Germany
 
-To evaluate the performance and limitations of large-scale crown segmentation and its validation, the DeepTrees model [@khan2025deeptrees] was applied in a one-shot prediction approach using pretrained model weights provided by Freudenberg et al [@freudenberg2022individual] as well as model weights trained in DeepTrees [@khan2025deeptrees], applied to high-resolution multispectral digital orthophoto imagery (DOP20) covering the German federal states of Saxony (SN) and Saxony-Anhalt (ST). SN, covering approximately 18,450 km², and Saxony-Anhalt, spanning around 20,452 km², represent diverse ecological and urban landscapes, ideal for assessing large-scale segmentation model performance (Figure 3 in Appendices). The 4-channel (RGBi) DOP20 imagery, with a spatial resolution of 20 cm per pixel , enables precise tree crown delineation. The DeepTrees model identified approximately 218.7 million individual tree crowns—137.3 million in SN and 81.4 million in ST (Figure 1a). <!--The resulting segmentation dataset has been made publicly available on Zenodo (https://zenodo.org/record/exampledoi).-->
+To evaluate the performance and limitations of large-scale crown segmentation and its validation, the DeepTrees model [@khan2025deeptrees] was applied in a one-shot prediction approach using pretrained model weights provided by Freudenberg et al [@freudenberg2022individual] as well as model weights trained in DeepTrees [@khan2025deeptrees], applied to high-resolution multispectral digital orthophoto imagery (DOP20) covering the German federal states of Saxony (SN) and Saxony-Anhalt (ST) [@lvermgeo2020dop; @geosn_dop20_2022]. SN, covering approximately 18,450 km², and Saxony-Anhalt, spanning around 20,452 km², represent diverse ecological and urban landscapes, ideal for assessing large-scale segmentation model performance (Figure 3 in Appendices). The 4-channel (RGBi) DOP20 imagery, with a spatial resolution of 20 cm per pixel , enables precise tree crown delineation. The DeepTrees model identified approximately 218.7 million individual tree crowns—137.3 million in SN and 81.4 million in ST (Figure 1a). The resulting segmentation dataset has been made available upon request on Zenodo (https://doi.org/10.5281/zenodo.15638573).
 
-Despite optimized methods, exact matches between predicted and ground-truth crown spreads were low (32%), though expanding the margin of error to ±5 m increased accuracy significantly (89%), highlighting validation challenges. The segmentation model systematically overestimated small crowns (\<6 m) and underestimated large crowns (\>16 m), yet the crown area versus spread relationship remained stable (Figure 1b), indicating consistent segmentations. Validation quality proved crucial; notably, the local inventory (‘Baumkataster’ Halle/Saale) provided broad intervals (5 m), limiting validation precision but still achieving an overall IOU of \~70%.The segmented tree crowns show substantial regional variability in tree distribution, reflecting ecological, topographical, and land-use gradients (Figure 3). To evaluate the performance and limitations of large-scale crown segmentation and its validation, the DeepTrees model[@khan2025deeptrees] was applied in a one-shot prediction approach using pretrained model weights provided by Freudenberg et al [@freudenberg2022individual] as well as our own model weights, applied to high-resolution multispectral digital orthophoto imagery (DOP20) covering the German federal states of Saxony (SN) and Saxony-Anhalt (ST). SN, covering approximately 18,450 km², and ST, spanning around 20,452 km², represent diverse ecological and urban landscapes, ideal for assessing large-scale segmentation model performance (Figure 3 in Appendices). The 4-channel (RGBi) DOP20 imagery, with a spatial resolution of 20 cm per pixel , enables precise tree crown delineation. The DeepTrees model identified approximately 218.7 million individual tree crowns—137.3 million in SN and 81.4 million in ST (Figure 1a). 
+Despite optimized methods, exact matches between predicted and ground-truth crown spreads were low (32%), though expanding the margin of error to ±5 m increased accuracy significantly (89%), highlighting validation challenges. The segmentation model systematically overestimated small crowns (\<6 m) and underestimated large crowns (\>16 m), yet the crown area versus spread relationship remained stable (Figure 1b), indicating consistent segmentations. Validation quality proved crucial; notably, the local inventory (‘Baumkataster’ Halle/Saale) provided broad intervals (5 m), limiting validation precision but still achieving an overall IOU of \~70%.The segmented tree crowns show substantial regional variability in tree distribution, reflecting ecological, topographical, and land-use gradients (Figure 3). To evaluate the performance and limitations of large-scale crown segmentation and its validation, the DeepTrees model[@khan2025deeptrees] was applied in a one-shot prediction approach using pretrained model weights provided by Freudenberg et al [@freudenberg2022individual] as well as our own model weights, applied to high-resolution multispectral digital orthophoto imagery (DOP20) covering the German federal states of Saxony (SN) and Saxony-Anhalt (ST). SN, covering approximately 18,450 km², and ST, spanning around 20,452 km², represent diverse ecological and urban landscapes, ideal for assessing large-scale segmentation model performance (Figure 3 in Appendix). The 4-channel (RGBi) DOP20 imagery, with a spatial resolution of 20 cm per pixel, enables precise tree crown delineation. The DeepTrees model identified approximately 218.7 million individual tree crowns—137.3 million in SN and 81.4 million in ST (Figure 1a), and derived allometrical traits of crown area and crown spread (Figure 1b). A clear positive correlation between crown spread and crown area is observed, although deviations from the expected linear trend highlight segmentation uncertainties, particularly for small and irregularly shaped crowns. This variation underscores the need for improved methods to capture crown geometry and supports the use of allometric checks for quality assessment. 
 
 
 ::: {.column width="100%"}
@@ -100,13 +100,15 @@ Despite optimized methods, exact matches between predicted and ground-truth crow
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.8\textwidth]{figures/figure1.png}
-\caption{a. Spatial distribution of individual tree crown segmentation polygons derived from multispectral DOP20 imagery across the German federal states of Sachsen (SN, green) and Sachsen-Anhalt (ST, blue), totaling 218.7 million predicted crowns.
-b. Relationship between normalized crown area (x-axis) and estimated crown spread (y-axis) for all segmented trees. A clear positive correlation is observed, although deviations from the expected linear trend highlight segmentation uncertainties, particularly for small and irregularly shaped crowns. This variation underscores the need for improved methods to capture crown geometry and supports the use of allometric checks for quality assessment.}
+\caption{(a) Spatial distribution of individual tree crown segmentation polygons derived from multispectral DOP20 imagery across the German federal states of Sachsen (SN, green) and Sachsen-Anhalt (ST, blue), totaling 218.7 million predicted crowns.
+(b) Relationship between normalized crown area (x-axis) and estimated crown spread (y-axis) for a subset of the segmented trees from Halle (Saale), ST.}
 \end{figure}
+```
+:::
 
 # Challenges
 
-Validating large-scale tree crown segmentation models reveals a web of interrelated challenges. Among these challenges is phenology, a moving target: the same forest can look drastically different between leaf-on summer imagery and leaf-off winter scenes. Models trained on a single phenological period often struggle in another, yielding inconsistent segmentation accuracy across the year [@sapkota2024; @liu2024]. For example, a canopy delineation that performs well on lush summer foliage may under-segment sparse autumn crowns or miss bare branches in winter. Such season-driven variability not only degrades model performance but also complicates validation – a one-shot model might appear accurate in one season and fail in the next, raising questions about how and when accuracy should be assessed. Incorporating multi-season data including the key phenological stages: leaf emergence, flowering, fruiting, autumn coloring and leaf fall, during both training and validation is essential, as phenological dynamics have been shown to strongly influence model generalizability [@moussaid2021tree; @cong2022citrus].
+Validating large-scale tree crown segmentation models reveals a web of interrelated challenges. Among these challenges is phenology, a moving target: the same forest can look drastically different between leaf-on summer imagery and leaf-off winter scenes. Models trained on a single phenological period often struggle in another, yielding inconsistent segmentation accuracy across the year [@sapkota2024; @liu2024; @garnot2025deep]. For example, a canopy delineation that performs well on lush summer foliage may under-segment sparse autumn crowns or miss bare branches in winter (Figure 3a). Such season-driven variability not only degrades model performance but also complicates validation – a one-shot model might appear accurate in one season and fail in the next, raising questions about how and when accuracy should be assessed. Incorporating multi-season data including the key phenological stages: leaf emergence, flowering, fruiting, autumn coloring and leaf fall, during both training and validation is essential, as phenological dynamics have been shown to strongly influence model generalizability [@moussaid2021tree; @cong2022citrus].
 
 Spatial and illumination heterogeneity of landscapes, driven by terrain and illumination differences, poses a major hurdle for both segmentation and its validation. An algorithm that segments tree crowns flawlessly in a flat, well-lit park may strugglein a shadow-drenched valley or on a steep mountainside. Variations in ground elevation and slope alter the angle of solar illumination, leading to uneven lighting and shadows that can confuse models. In mountainous or rugged terrains, trees on north-facing slopes might appear darker or partially occluded compared to those on south-facing slopes with direct sun, even if they are the same species and healthy. Such effects result in site-specific performance: accuracy drops when moving to new topographies or sensor angles. Weinstein et al. (2020) observed this kind of cross-site performance gap, where a tree detection model trained in one region underperformed when applied to a different region’s imagery without adaptation, underscoring how terrain and context influence outcomes [@weinstein2020cross]. Fine-tuning can increase accuracy, but requires additional data and computational resources. For validation, this means that accuracy estimates from one area may not transfer to another – a critical issue when assessments at national or global scales are required.
 
@@ -125,10 +127,12 @@ The above challenges reflect the multifaceted difficulties of validating tree cr
 \includegraphics[width=0.8\textwidth]{figures/figure2.png}
 \caption{Illustration of key validation challenges in large-scale tree crown segmentation across two federal states (Sachsen-Anhalt; in blue \& Sachsen; in green) in Germany. Insets highlight specific issues: (a) seasonal variation (phenology) affecting appearance, (b) tiling artifacts in image preprocessing, (c) misalignment between predicted crowns and known tree stem locations, and (d) discrepancies between predicted crowns (blue) and labeled ground truth (red), emphasizing model performance gaps. Blue (Sachsen-Anhalt) and green (Sachsen) overlays represent modelled individual tree crowns across different Federal States in Germany.}
 \end{figure}
+```
+:::
 
 # Recommendations
 
-Validating large-scale tree segmentation models is challenging due to seasonal variability, diverse terrain and illumination conditions, inconsistent ground truth data, ambiguous evaluation criteria, and scale-dependent performance. These factors significantly affect the reliability and practical value of AI-generated tree maps for forestry, ecology, and urban planning.
+Validating large-scale tree segmentation models is challenging due to seasonal variability, diverse terrain (Figure 3b,c)[@copernicus_copdem30, @eea_corine2020] and illumination conditions, inconsistent ground truth data, ambiguous evaluation criteria, and scale-dependent performance. These factors significantly affect the reliability and practical value of AI-generated tree maps for forestry, ecology, and urban planning.
 
 Addressing these challenges necessitates a multi-faceted approach that integrates advanced modeling techniques, improved validation methods, and robust data collection. Recommended strategies include enhancing model robustness through sophisticated training approaches and developing standardized evaluation frameworks to assess real-world performance accurately. These efforts aim to ensure that advances in deep learning yield reliable, actionable insights for large-scale tree mapping.
 
@@ -157,7 +161,7 @@ Emerging methods such as self-supervised learning, geospatial foundation models,
 Pursuing the recommendations, the field can significantly advance accurate and trustworthy large-scale tree mapping by integrating robust, self-supervised, multi-view, and terrain-aware models with continuous validation against classical metrics and real-world plausibility, using feedback for active learning and expanded training data. The real frontier is integration: aligning spatial, temporal, and ecological knowledge through a fusion of data-driven and domain-aware models. As these systems are deployed across continents, cities, and seasons, the imperative is not just to scale algorithms, but to scale insight. Only then can tree segmentation models become dependable instruments for managing the living infrastructure of our planet.
 
 \begin{credits}
-\subsubsection{\ackname} DeepTrees is part of the [“DeepTrees: Deep-Learning based spatiotemporal tree inventorying and monitoring from public orthoimages”](https://deeptrees.de) project, funded by the Integration Platform "Sustainable Future Land Use" at Helmholtz-Centre for Environmental Research – UFZ within the Programme oriented Funding (PoF) period IV of the Helmholtz Program "Changing Earth – Sustaining our Future", Topic 5 "Landscapes of the Future. This repository is based on the work described in Freudenberg et al. (2022). This work was supported by Helmholtz Association's Initiative and Networking Fund through Helmholtz AI [grant number: ZT-I-PF-5-01]. This work used resources of the Deutsches Klimarechenzentrum (DKRZ) granted by its Scientific Steering Committee (WLA) under project ID AIM.
+\subsubsection{\ackname} DeepTrees is part of the \href{https://deeptrees.de}{DeepTrees: Deep-Learning based spatiotemporal tree inventorying and monitoring from public orthoimages} project, funded by the Integration Platform "Sustainable Future Land Use" at Helmholtz-Centre for Environmental Research – UFZ within the Programme oriented Funding (PoF) period IV of the Helmholtz Program "Changing Earth – Sustaining our Future", Topic 5 "Landscapes of the Future. This repository is based on the work described in Freudenberg et al. (2022). This work was supported by Helmholtz Association's Initiative and Networking Fund through Helmholtz AI [grant number: ZT-I-PF-5-01]. This work used resources of the Deutsches Klimarechenzentrum (DKRZ) granted by its Scientific Steering Committee (WLA) under project ID AIM.
 
 \subsubsection{\discintname}
 The authors have no competing interests to declare that are
