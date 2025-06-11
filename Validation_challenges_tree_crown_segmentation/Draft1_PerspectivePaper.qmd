@@ -122,7 +122,7 @@ The above challenges reflect the multifaceted difficulties of validating tree cr
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.8\textwidth]{figures/figure2.png}
-\caption{Illustration of key validation challenges in large-scale tree crown segmentation across two federal states (Sachsen-Anhalt; in blue I\& Sachsen; in green) in Germany. Insets highlight specific issues: (a) seasonal variation (phenology) affecting appearance, (b) tiling artifacts in image preprocessing, (c) misalignment between predicted crowns and known tree stem locations, and (d) discrepancies between predicted crowns (blue) and labeled ground truth (red), emphasizing model performance gaps. Blue (Sachsen-Anhalt) and green (Sachsen) overlays represent modelled individual tree crowns across different Federal States in Germany.}
+\caption{Illustration of key validation challenges in large-scale tree crown segmentation across two federal states (Sachsen-Anhalt; in blue \& Sachsen; in green) in Germany. Insets highlight specific issues: (a) seasonal variation (phenology) affecting appearance, (b) tiling artifacts in image preprocessing, (c) misalignment between predicted crowns and known tree stem locations, and (d) discrepancies between predicted crowns (blue) and labeled ground truth (red), emphasizing model performance gaps. Blue (Sachsen-Anhalt) and green (Sachsen) overlays represent modelled individual tree crowns across different Federal States in Germany.}
 \end{figure}
 
 # Recommendations
