@@ -86,7 +86,7 @@ A key metric in this context is the crown projection area (CPA), defined as the 
    
 Among the available crown metrics, crown spread is particularly valuable as an independent variable for validating segmentation results, as it captures essential information about tree size and structure. However, accurate estimation of crown spread is complex in both field and remote sensing contexts. Errors can arise not only during the segmentation process but also from the methods used to derive crown spread from segmented polygons, especially for irregularly shaped crowns. The choice of calculation method strongly influences the quality of crown spread estimates and, consequently, the reliability of validation metrics. Furthermore, the accuracy of validation is fundamentally dependent on the quality of reference data; coarse or inconsistent ground-truth datasets can substantially limit the precision of assessment.
 
-Building on our extensive experience in applying deep learning models to large-scale tree crown segmentation across Germany at the federal‐state level, this paper (1) identifies and characterizes the key challenges involved in assessing segmentation accuracy over expansive, heterogeneous terrains––including variability in canopy structure, imaging conditions, and regional ecological gradients––and (2) provides concrete methodological recommendations to address these challenges. By coupling a rigorous evaluation of terrain‐specific segmentation limitations with these targeted recommendations, we aim to foster a dialogue on the methodological innovations required to ensure that deep learning advancements in remote sensing translate into actionable insights at the scales required by global environmental challenges. 
+Building on our extensive experience in applying deep learning models to large-scale tree crown segmentation across Germany at the federal‐state level, this paper (1) identifies and characterizes the key challenges involved in assessing segmentation accuracy over expansive, heterogeneous terrains–including variability in canopy structure, imaging conditions, and regional ecological gradients–and (2) provides concrete methodological recommendations to address these challenges. By coupling a rigorous evaluation of terrain‐specific segmentation limitations with these targeted recommendations, we aim to foster a dialogue on the methodological innovations required to ensure that deep learning advancements in remote sensing translate into actionable insights at the scales required by global environmental challenges. 
 
 # Case Study: Tree Crown Segmentation in Saxony and Saxony-Anhalt, Germany
 
@@ -94,8 +94,14 @@ To evaluate the performance and limitations of large-scale crown segmentation an
 
 Despite optimized methods, exact matches between predicted and ground-truth crown spreads were low (32%), though expanding the margin of error to ±5 m increased accuracy significantly (89%), highlighting validation challenges. The segmentation model systematically overestimated small crowns (\<6 m) and underestimated large crowns (\>16 m), yet the crown area versus spread relationship remained stable (Figure 1b), indicating consistent segmentations. Validation quality proved crucial; notably, the local inventory (‘Baumkataster’ Halle/Saale) provided broad intervals (5 m), limiting validation precision but still achieving an overall IOU of \~70%.The segmented tree crowns show substantial regional variability in tree distribution, reflecting ecological, topographical, and land-use gradients (Figure 3). To evaluate the performance and limitations of large-scale crown segmentation and its validation, the DeepTrees model[@khan2025deeptrees] was applied in a one-shot prediction approach using pretrained model weights provided by Freudenberg et al [@freudenberg2022individual] as well as our own model weights, applied to high-resolution multispectral digital orthophoto imagery (DOP20) covering the German federal states of Saxony (SN) and Saxony-Anhalt (ST). SN, covering approximately 18,450 km², and ST, spanning around 20,452 km², represent diverse ecological and urban landscapes, ideal for assessing large-scale segmentation model performance (Figure 3 in Appendices). The 4-channel (RGBi) DOP20 imagery, with a spatial resolution of 20 cm per pixel , enables precise tree crown delineation. The DeepTrees model identified approximately 218.7 million individual tree crowns—137.3 million in SN and 81.4 million in ST (Figure 1a). The resulting segmentation dataset has been made publicly available on Zenodo (https://zenodo.org/record/exampledoi).
 
-![a. Spatial distribution of individual tree crown segmentation polygons derived from multispectral DOP20 imagery across the German federal states of Sachsen (SN, green) and Sachsen-Anhalt (ST, blue), totaling 218.7 million predicted crowns.
-b. Relationship between normalized crown area (x-axis) and estimated crown spread (y-axis) for all segmented trees. A clear positive correlation is observed, although deviations from the expected linear trend highlight segmentation uncertainties, particularly for small and irregularly shaped crowns. This variation underscores the need for improved methods to capture crown geometry and supports the use of allometric checks for quality assessment.]("./figures/figure1.png")
+::: {.column width="100%"}
+```{=latex}
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/figure1.png}
+\caption{a. Spatial distribution of individual tree crown segmentation polygons derived from multispectral DOP20 imagery across the German federal states of Sachsen (SN, green) and Sachsen-Anhalt (ST, blue), totaling 218.7 million predicted crowns.
+b. Relationship between normalized crown area (x-axis) and estimated crown spread (y-axis) for all segmented trees. A clear positive correlation is observed, although deviations from the expected linear trend highlight segmentation uncertainties, particularly for small and irregularly shaped crowns. This variation underscores the need for improved methods to capture crown geometry and supports the use of allometric checks for quality assessment.}
+\end{figure}
 
 # Challenges
 
@@ -111,7 +117,13 @@ There is also the issue of scale and resolution in validation reporting. A model
 
 The above challenges reflect the multifaceted difficulties of validating tree crown segmentation at scale. For an at-a-glance overview of these issues and recommendations, see Table 1 in the Appendix.
 
-![Illustration of key validation challenges in large-scale tree crown segmentation across two federal states (Sachsen-Anhalt; in blue & Sachsen; in green) in Germany. Insets highlight specific issues: (a) seasonal variation (phenology) affecting appearance, (b) tiling artifacts in image preprocessing, (c) misalignment between predicted crowns and known tree stem locations, and (d) discrepancies between predicted crowns (blue) and labeled ground truth (red), emphasizing model performance gaps. Blue (Sachsen-Anhalt) and green (Sachsen) overlays represent modelled individual tree crowns across different Federal States in Germany.]("./figures/figure2.png")
+::: {.column width="100%"}
+```{=latex}
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/figure2.png}
+\caption{Illustration of key validation challenges in large-scale tree crown segmentation across two federal states (Sachsen-Anhalt; in blue I\& Sachsen; in green) in Germany. Insets highlight specific issues: (a) seasonal variation (phenology) affecting appearance, (b) tiling artifacts in image preprocessing, (c) misalignment between predicted crowns and known tree stem locations, and (d) discrepancies between predicted crowns (blue) and labeled ground truth (red), emphasizing model performance gaps. Blue (Sachsen-Anhalt) and green (Sachsen) overlays represent modelled individual tree crowns across different Federal States in Germany.}
+\end{figure}
 
 # Recommendations
 
